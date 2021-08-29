@@ -1,0 +1,67 @@
+
+This code is am implement of the section 4 in 
+``Image Metamorphosis Using Snakes and Free-Form Deformations''
+Lee et. al Siggraph 95 paper
+
+---------
+
+* interactive deformation 
+  In the window, drag with a pointer device.
+  one pair of a pressed point and a released point becomes an order to deform
+  the plane. The deformation function is derived immediately and the deformed mesh
+  by the function is displayed.
+
+  Multiple dragging operations are allowed.
+
+  make src/TestMFFDGUI
+
+* deformatinon by predefined deformation order points
+  To see the deformation, use gnuplot command 
+
+  make src/TestMFFD
+
+  starting gnuplot,
+    plot "order.data" with line, "deformedmesh.data" with line
+
+* deformatinon by predefined one deformation order point
+  To see the deformation, use gnuplot command 
+
+  make src/TestMFFD0
+
+  starting gnuplot,
+    plot "order.data" with line, "deformedmesh.data" with line
+
+
+To understand the internal class and methd, try the following samples too
+
+* arbitrary order uniform B-Spline basis function
+
+  make src/TestBSpline
+
+* uniform cubic B-Spline function
+
+  make src/TestCubicBSpline
+
+* 2 dimensional uniform cubic B-Spline function
+
+  make src/TestCubicBSpline2Dimension
+
+  use gnuplot to confirm the shape of function 
+  after starting gnuplot
+    splot "patch.data" with line
+
+* 2 dimensional uniform cubic B-Spline patch
+  use gnuplot to confirm the shape of function 
+
+  make src/TestCubicBSpline2DimensionComposition
+
+  after starting gnuplot
+    splot "patch.data" with line
+   
+* Inner function check program
+  use gnuplot to check the values in the Function W
+
+  make src/TestFunctionW
+
+  after startting gnuplot
+    plot "order.data" with line , "deltaphais.data" with line, "controls.data" with line, "deformedmesh.data" with line
